@@ -1,39 +1,30 @@
-# Configuration for Rasa NLU.
-# https://rasa.com/docs/rasa/nlu/components/
-language: en
+language: vi
 
-pipeline:
-# # No configuration for the NLU pipeline was provided. The following default pipeline was used to train your model.
-# # If you'd like to customize it, uncomment and adjust the pipeline.
-# # See https://rasa.com/docs/rasa/tuning-your-model for more information.
-#   - name: WhitespaceTokenizer
-#   - name: RegexFeaturizer
-#   - name: LexicalSyntacticFeaturizer
-#   - name: CountVectorsFeaturizer
-#   - name: CountVectorsFeaturizer
-#     analyzer: char_wb
-#     min_ngram: 1
-#     max_ngram: 4
-#   - name: DIETClassifier
-#     epochs: 100
-#     constrain_similarities: true
-#   - name: EntitySynonymMapper
-#   - name: ResponseSelector
-#     epochs: 100
-#     constrain_similarities: true
-#   - name: FallbackClassifier
-#     threshold: 0.3
-#     ambiguity_threshold: 0.1
+pipeline: # quá trình huấn luyện bot hiểu đc nlu
+  - name: WhitespaceTokenizer
+  - name: RegexFeaturizer # lấy đặc trưng theo regex
+  - name: LexicalSyntacticFeaturizer # lấy đặc trưng
+  - name: CountVectorsFeaturizer # trích xuất đặc trưng count vector
+  - name: CountVectorsFeaturizer
+    analyzer: char_wb
+    min_ngram: 1
+    max_ngram: 4
+  - name: DIETClassifier # phân loại ý định người dùng và trích xuất thực thể
+    epochs: 100
+    constrain_similarities: true
+  - name: EntitySynonymMapper # map những thực thể đồng nghĩa lại
+  - name: ResponseSelector # lựa chọn câu hỏi trả về
+    epochs: 100
+    constrain_similarities: true
+  - name: FallbackClassifier # câu hỏi k vào intent nào
+    threshold: 0.3
+    ambiguity_threshold: 0.1
 
 # Configuration for Rasa Core.
-# https://rasa.com/docs/rasa/core/policies/
-policies:
-# # No configuration for policies was provided. The following default policies were used to train your model.
-# # If you'd like to customize them, uncomment and adjust the policies.
-# # See https://rasa.com/docs/rasa/policies for more information.
-#   - name: MemoizationPolicy
-#   - name: TEDPolicy
-#     max_history: 5
-#     epochs: 100
-#     constrain_similarities: true
-#   - name: RulePolicy
+policies: # đào tạo file stories
+  - name: MemoizationPolicy # lưu trữ lịch sử hội thoại đoán kịch bản
+  - name: TEDPolicy
+    max_history: 5
+    epochs: 100
+    constrain_similarities: true
+  - name: RulePolicy
