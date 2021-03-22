@@ -1,34 +1,30 @@
 version: "2.0"
 
 intents:
-  - greet
-  - goodbye
-  - affirm
-  - deny
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
+  - chao
+  - tam_biet
+  - chao_voi_ten
+
+entities:
+  - customer_name
+
+slots:
+  customer_name:
+    type: text
+
 
 responses:
-  utter_greet:
-  - text: "Hey! How are you?"
+  utter_chao:
+  - text: "Chào bạn, bạn có thể cung cấp tên để tiện xưng hô được không ạ?"
 
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
+  utter_chao_voi_ten:
+  - text: "Xin chào {customer_name}, Beem có thể giúp gì cho {customer_name} ạ?"
 
-  utter_did_that_help:
-  - text: "Did that help you?"
+  utter_tam_biet:
+  - text: "Tạm biệt, có gì ới Beem nha!"
 
-  utter_happy:
-  - text: "Great, carry on!"
-
-  utter_goodbye:
-  - text: "Bye"
-
-  utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
-
+  utter_mac_dinh:
+  - text: "Xin lỗi, mình vẫn chưa thể hiểu được ý của bạn :("
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
