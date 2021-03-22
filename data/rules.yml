@@ -1,1 +1,22 @@
 version: "2.0"
+rules:
+  - rule: nhắc lại yêu cầu hỏi người dùng
+    steps:
+      - intent: nlu_fallback
+      - action: utter_mac_dinh
+      - active_loop: utter_mac_dinh
+
+  - rule: bắt đầu form tìm kiếm một nhà hàng
+    steps:
+      - intent: tim_kiem_nha_hang   # intent that triggers form activation
+      - action: tim_cua_hang_form      # run the form
+      - active_loop: tim_cua_hang_form # this form is active
+
+  - rule: submit một form
+    condition:
+    - active_loop: tim_cua_hang_form   # this form must be active
+    steps:
+      - action: tim_cua_hang_form      # run the form
+      - active_loop: null            # the form is no longer active because it has been filled
+      - action: utter_submit         # action to take after the form is complete
+      - action: utter_ket_thuc   # action to take after the form is complete

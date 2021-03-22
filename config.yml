@@ -17,8 +17,7 @@ pipeline: # quá trình huấn luyện bot hiểu đc nlu
     epochs: 100
     constrain_similarities: true
   - name: FallbackClassifier # câu hỏi k vào intent nào
-    threshold: 0.3
-    ambiguity_threshold: 0.1
+    threshold: 0.7
 
 # Configuration for Rasa Core.
 policies: # đào tạo file stories

@@ -22,3 +22,18 @@ nlu:
     - Em là [Thuỷ](customer_name)
     - [Vân](customer_name)
     - [Hùng](customer_name)
+
+- intent: tim_kiem_nha_hang
+  examples: |
+    - tôi đang tìm một nhà hàng
+    - tôi có thể tìm một nhà hàng ở [Việt Nam](am_thuc) 
+    - ở [Việt Nam](am_thuc) có nhà hàng nào ngon
+- intent: inform
+  examples: |
+    - [Việt Nam](am_thuc) ẩm thực
+    - ẩm thực [Việt Nam](am_thuc)
+    - cho [10](so_nguoi) người
+    - [10](so_nguoi)
+    - ở [Bên trong](vi_tri)
+    - ở [Bên ngoài](vi_tri)
+    - [Nơi ít người](vi_tri)
