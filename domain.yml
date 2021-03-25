@@ -1,46 +1,42 @@
 version: "2.0"
 
 intents:
-  - chao
-  - tam_biet
-  - chao_voi_ten
-  - tim_kiem_nha_hang
-  - inform
+  - intent_chao
+  - intent_tam_biet
+  - intent_tim_kiem_nha_hang
+  - intent_inform
 
 forms:
-  tim_cua_hang_form:
-    am_thuc:
+  form_tim_cua_hang:
+    entity_am_thuc:
       - type: from_entity
-        entity: am_thuc
-    so_nguoi:
+        entity: entity_am_thuc
+    entity_so_nguoi:
       - type: from_entity
-        entity: so_nguoi
-    vi_tri:
+        entity: entity_so_nguoi
+    entity_vi_tri:
       - type: from_entity
-        entity: vi_tri
+        entity: entity_vi_tri
 
 entities:
-  - customer_name
-  - am_thuc
-  - so_nguoi
-  - vi_tri
+  - entity_am_thuc
+  - entity_so_nguoi
+  - entity_vi_tri
 
 slots:
-  customer_name:
+  entity_am_thuc:
     type: text
-  am_thuc:
-    type: text
-  so_nguoi:
+    influence_conversation: false
+  entity_so_nguoi:
     type: float
-  vi_tri:
+    influence_conversation: false
+  entity_vi_tri:
     type: text
+    influence_conversation: false
 
 responses:
   utter_chao:
-    - text: "Chào bạn, bạn có thể cung cấp tên để tiện xưng hô được không ạ?"
-
-  utter_chao_voi_ten:
-    - text: "Xin chào {customer_name}, Beem có thể giúp gì cho {customer_name} ạ?"
+    - text: "Chào bạn, Beem có thể giúp gì cho bạn ạ?"
 
   utter_tam_biet:
     - text: "Tạm biệt, có gì ới Beem nha!"
@@ -48,13 +44,13 @@ responses:
   utter_mac_dinh:
     - text: "Xin lỗi, mình vẫn chưa thể hiểu được ý của bạn, bạn có thể nhắc lại được không?"
 
-  utter_ask_am_thuc:
+  utter_ask_entity_am_thuc:
     - text: "Bạn thích ẩm thực nào"
   
-  utter_ask_so_nguoi:
+  utter_ask_entity_so_nguoi:
     - text: "Gồm bao nhiêu người?"
   
-  utter_ask_vi_tri:
+  utter_ask_entity_vi_tri:
     - text: "Bạn thích vị trí như thế nào?"
 
   utter_submit:
@@ -62,9 +58,9 @@ responses:
 
   utter_ket_thuc:
   - text: "Yêu cầu của bạn là:\n
-            - ẩm thực: {am_thuc}\n
-            - số người: {so_nguoi}\n
-            - vị trí: {vi_tri}"
+            - ẩm thực: {entity_am_thuc}\n
+            - số người: {entity_so_nguoi}\n
+            - vị trí: {entity_vi_tri}"
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true

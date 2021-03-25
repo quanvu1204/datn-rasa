@@ -4,16 +4,7 @@ stories:
 
 - story: Chào xong tạm biệt luôn
   steps:
-  - intent: chao
+  - intent: intent_chao
   - action: utter_chao
-  - intent: tam_biet
-  - action: utter_tam_biet
-
-- story: Chào xong hỏi tên rồi tạm biệt
-  steps:
-  - intent: chao
-  - action: utter_chao
-  - intent: chao_voi_ten
-  - action: utter_chao_voi_ten
-  - intent: tam_biet
+  - intent: intent_tam_biet
   - action: utter_tam_biet

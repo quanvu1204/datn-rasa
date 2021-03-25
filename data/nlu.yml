@@ -1,39 +1,31 @@
 version: "2.0"
 
 nlu:
-- intent: chao
+- intent: intent_chao
   examples: |
     - Xin chào
     - Chào
     - Hi
     - Hello
 
-- intent: tam_biet
+- intent: intent_tam_biet
   examples: |
     - Tạm biệt
     - Bye
     - Hẹn gặp lại
     - Goodbye
 
-- intent: chao_voi_ten
-  examples: |
-    - Mình là [Quân](customer_name)
-    - Chị là [Phương](customer_name)
-    - Em là [Thuỷ](customer_name)
-    - [Vân](customer_name)
-    - [Hùng](customer_name)
-
-- intent: tim_kiem_nha_hang
+- intent: intent_tim_kiem_nha_hang
   examples: |
     - tôi đang tìm một nhà hàng
-    - tôi có thể tìm một nhà hàng ở [Việt Nam](am_thuc) 
-    - ở [Việt Nam](am_thuc) có nhà hàng nào ngon
-- intent: inform
+    - tôi có thể tìm một nhà hàng ở [Việt Nam](entity_am_thuc) 
+    - ở [Việt Nam](entity_am_thuc) có nhà hàng nào ngon
+- intent: intent_inform
   examples: |
-    - [Việt Nam](am_thuc) ẩm thực
-    - ẩm thực [Việt Nam](am_thuc)
-    - cho [10](so_nguoi) người
-    - [10](so_nguoi)
-    - ở [Bên trong](vi_tri)
-    - ở [Bên ngoài](vi_tri)
-    - [Nơi ít người](vi_tri)
+    - [Việt Nam](entity_am_thuc) ẩm thực
+    - ẩm thực [Việt Nam](entity_am_thuc)
+    - cho [10](entity_so_nguoi) người
+    - [10](entity_so_nguoi)
+    - ở [Bên trong](entity_vi_tri)
+    - ở [Bên ngoài](entity_vi_tri)
+    - [Nơi ít người](entity_vi_tri)
