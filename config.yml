@@ -1,7 +1,7 @@
 language: vi
 
 pipeline: # quá trình huấn luyện bot hiểu đc nlu
-  - name: WhitespaceTokenizer
+  - name: VietnameseTokenizer
   - name: RegexFeaturizer # lấy đặc trưng theo regex
   - name: LexicalSyntacticFeaturizer # lấy đặc trưng
   - name: CountVectorsFeaturizer # trích xuất đặc trưng count vector
