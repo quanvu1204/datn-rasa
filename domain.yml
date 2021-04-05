@@ -46,21 +46,30 @@ responses:
 
   utter_ask_entity_am_thuc:
     - text: "Bạn thích ẩm thực nào"
-  
+
   utter_ask_entity_so_nguoi:
     - text: "Gồm bao nhiêu người?"
-  
+
   utter_ask_entity_vi_tri:
     - text: "Bạn thích vị trí như thế nào?"
 
   utter_submit:
-  - text: "Hoàn thành!"
+    - text: "Hoàn thành!"
+
+  utter_tra_loi_ve_nha_hang:
+    - text: "Vì chúng tôi thích"
+
+  utter_tra_loi_ve_so_nguoi:
+    - text: "Vì chúng tôi thích"
 
   utter_ket_thuc:
-  - text: "Yêu cầu của bạn là:\n
-            - ẩm thực: {entity_am_thuc}\n
-            - số người: {entity_so_nguoi}\n
-            - vị trí: {entity_vi_tri}"
+    - text: "Yêu cầu của bạn là:\n
+        - ẩm thực: {entity_am_thuc}\n
+        - số người: {entity_so_nguoi}\n
+        - vị trí: {entity_vi_tri}"
+
+  utter_default:
+    - text: Tôi không thể hiểu được câu bạn nói, bạn có thể nói lại không?
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true

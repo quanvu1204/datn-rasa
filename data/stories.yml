@@ -1,10 +1,57 @@
 version: "2.0"
 
 stories:
+  - story: Chào xong tạm biệt luôn
+    steps:
+      - intent: intent_chao
+      - action: utter_chao
+      - intent: intent_tam_biet
+      - action: utter_tam_biet
 
-- story: Chào xong tạm biệt luôn
-  steps:
-  - intent: intent_chao
-  - action: utter_chao
-  - intent: intent_tam_biet
-  - action: utter_tam_biet
+  - story: yêu cầu giải thích về nhà hàng
+    steps:
+      - intent: intent_tim_kiem_nha_hang
+      - action: form_tim_cua_hang
+      - active_loop: form_tim_cua_hang
+      - slot_was_set:
+          - requested_slot: entity_am_thuc
+      - intent: intent_hoi_tai_sao
+      - action: utter_tra_loi_ve_nha_hang
+      - action: form_tim_cua_hang
+      - active_loop: null
+      - action: utter_submit
+      - action: utter_ket_thuc
+
+  - story: yêu cầu giải thích về số người
+    steps:
+      - intent: intent_tim_kiem_nha_hang
+      - action: form_tim_cua_hang
+      - active_loop: form_tim_cua_hang
+      - slot_was_set:
+          - requested_slot: entity_am_thuc
+      - slot_was_set:
+          - requested_slot: entity_so_nguoi
+      - intent: intent_hoi_tai_sao
+      - action: utter_tra_loi_ve_so_nguoi
+      - action: form_tim_cua_hang
+      - active_loop: null
+      - action: utter_submit
+      - action: utter_ket_thuc
+
+  - story: yêu cầu giải thích về số người
+    steps:
+      - intent: intent_tim_kiem_nha_hang
+      - action: form_tim_cua_hang
+      - active_loop: form_tim_cua_hang
+      - slot_was_set:
+          - requested_slot: entity_am_thuc
+      - slot_was_set:
+          - requested_slot: entity_so_nguoi
+      - slot_was_set:
+          - requested_slot: entity_vi_tri
+      - intent: intent_hoi_tai_sao
+      - action: utter_tra_loi_ve_so_nguoi
+      - action: form_tim_cua_hang
+      - active_loop: null
+      - action: utter_submit
+      - action: utter_ket_thuc

@@ -27,3 +27,6 @@ policies: # đào tạo file stories
     epochs: 100
     constrain_similarities: true
   - name: RulePolicy
+    core_fallback_threshold: 0.7
+    core_fallback_action_name: "action_default_fallback"
+    enable_fallback_prediction: True

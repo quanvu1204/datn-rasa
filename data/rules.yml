@@ -1,21 +1,10 @@
 version: "2.0"
 rules:
-  - rule: bắt đầu form tìm kiếm một nhà hàng
-    steps:
-      - intent: intent_tim_kiem_nha_hang   # intent that triggers form activation
-      - action: form_tim_cua_hang      # run the form
-      - active_loop: form_tim_cua_hang # this form is active
-
-  - rule: submit một form
-    condition:
-    - active_loop: form_tim_cua_hang   # this form must be active
-    steps:
-      - action: form_tim_cua_hang      # run the form
-      - active_loop: null            # the form is no longer active because it has been filled
-      - action: utter_submit         # action to take after the form is complete
-      - action: utter_ket_thuc   # action to take after the form is complete
-  
   - rule: chào
     steps:
       - intent: intent_chao
       - action: utter_chao
+  - rule: tạm biệt
+    steps:
+      - intent: intent_tam_biet
+      - action: utter_tam_biet
