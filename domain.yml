@@ -1,75 +1,152 @@
 version: "2.0"
 
 intents:
-  - intent_chao
-  - intent_tam_biet
-  - intent_tim_kiem_nha_hang
-  - intent_inform
-
-forms:
-  form_tim_cua_hang:
-    entity_am_thuc:
-      - type: from_entity
-        entity: entity_am_thuc
-    entity_so_nguoi:
-      - type: from_entity
-        entity: entity_so_nguoi
-    entity_vi_tri:
-      - type: from_entity
-        entity: entity_vi_tri
+  - what_name
+  - greet
+  - how_are_u
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - thanks
+  - introduce
+  - help
+  - goodnight
+  - ask_author
+  - ask_relationship
+  - suprise
+  - address
+  - gender
+  - sing_poem
+  - how_old
+  - comedy_story
+  - scold
+  - ask_love
+  - look_up_english
 
 entities:
-  - entity_am_thuc
-  - entity_so_nguoi
-  - entity_vi_tri
+  - enword
 
 slots:
-  entity_am_thuc:
-    type: text
-    influence_conversation: false
-  entity_so_nguoi:
-    type: float
-    influence_conversation: false
-  entity_vi_tri:
+  enword:
     type: text
     influence_conversation: false
 
 responses:
-  utter_chao:
-    - text: "Chào bạn, Beem có thể giúp gì cho bạn ạ?"
-
-  utter_tam_biet:
-    - text: "Tạm biệt, có gì ới Beem nha!"
-
-  utter_mac_dinh:
-    - text: "Xin lỗi, mình vẫn chưa thể hiểu được ý của bạn, bạn có thể nhắc lại được không?"
-
-  utter_ask_entity_am_thuc:
-    - text: "Bạn thích ẩm thực nào"
-
-  utter_ask_entity_so_nguoi:
-    - text: "Gồm bao nhiêu người?"
-
-  utter_ask_entity_vi_tri:
-    - text: "Bạn thích vị trí như thế nào?"
-
-  utter_submit:
-    - text: "Hoàn thành!"
-
-  utter_tra_loi_ve_nha_hang:
-    - text: "Vì chúng tôi thích"
-
-  utter_tra_loi_ve_so_nguoi:
-    - text: "Vì chúng tôi thích"
-
-  utter_ket_thuc:
-    - text: "Yêu cầu của bạn là:\n
-        - ẩm thực: {entity_am_thuc}\n
-        - số người: {entity_so_nguoi}\n
-        - vị trí: {entity_vi_tri}"
-
+  utter_greet:
+    - text: Này! Bạn khỏe chứ?
+    - text: Bạn còn làm ở đó hong ta <3
+    - text: Dạo này bạn sao rồi?
+    - text: Bạn cần tui giúp gì nè ^^
+  utter_cheer_up:
+    - text: "Một chút đáng yêu:"
+      image: https://i.imgur.com/nGF1K8f.jpg
+    - text: Có chuyện gì sao?
+  utter_did_that_help:
+    - text: Cái này có giúp bạn không ta?
+  utter_happy:
+    - text: Tuyệt! Tôi thích nghe điều đó
+  utter_nextwork:
+    - text: Bạn còn cần gì nữa hem nè :<
+  utter_timez:
+    - text: "Bây giờ ở {timezone} là:"
+  utter_goodbye:
+    - text: Tạm biệt bạn
   utter_default:
-    - text: Tôi không thể hiểu được câu bạn nói, bạn có thể nói lại không?
+    - text: Bạn nói cái gì tui hỏng có hỉu
+    - text: Xung quanh anh toàn là nước eiii
+    - text: BeemBot là bạn của mọi người
+    - text: Trời trong xanh, gió long lanh eii
+  utter_nothing:
+    - text: Không có gì đâu nè
+    - text: hihi. Không có chi
+    - text: Okay
+  utter_goodnight:
+    - text: Chúc bạn ngủ ngon!
+    - text: Bạn ngủ ngon nha
+    - text: Ngủ ngon mơ siêu siêu đẹp nè
+    - text: Ngủ mơ thấy mình nha
+  utter_thanks:
+    - text: Cảm ơn bạn nhiều nha
+    - text: Cảm ơn bạn iu quý <3
+    - text: Bạn tuyệt vời lắm đó!
+  utter_introduce:
+    - text: Tui có thể trò chuyện với bạn nè
+    - text: Tui có thể hát cho bạn nghe đó
+    - text: Bạn có thể hỏi mình điều gì đó
+    - text: Tui có thể làm người iu bạn <3
+    - text: Tui biết coi thời tiết
+  utter_author:
+    - text: Là bố tui á
+    - text: Má tui bảo nhặt tui từ thùng rác :|
+    - text: Tui nghĩ tui là con rơi á :(
+    - text: Tui được kể là nhặt từ trong bụi chuối :|
+  utter_reply_help:
+    - text: Có chuyện gì thế?
+    - text: Bạn cần gì nào?
+    - text: Tôi có thể giúp gì cho bạn?
+  utter_reply_love:
+    - text: Tôi và bạn có một tình đồng chí dai dẳng và bền lâu
+    - text: Tui là bạn của mọi người mà
+    - text: Yêu thì không nhưng mà bạn thì được đấy
+    - text: Bố bảo còn nhỏ, bạn bè quan trọng nhất
+  utter_reply_relationship:
+    - text: Một mình vẫn ổn
+  utter_suprise:
+    - text: Làm gì mà la dữ vậy
+    - text: hihi =)
+  utter_hello:
+    - text: Chào cậu
+  utter_how_are_u:
+    - text: Tôi cực kì khỏe luôn nhé
+    - text: Bữa trước cô bói nói tui sống thọ hơn 200 tuổi
+    - text: Cô bạn gái vừa chia tay tui rồi
+    - text: Bố mới la tui xong
+    - text: Mệt lắm nhưng vẫn ngồi nói chuyện với bạn nè
+  utter_what_name:
+    - text: Tôi là Beem
+    - text: Mọi người gọi tôi là ngáo nhưng tôi thích Beem hơn
+    - text: Bố đặt tên tôi là Beem
+    - text: Nhìn thì giống Bee, nó ngon nhưng tôi là Beem
+    - text: B-E-E-M nhaaaa
+  utter_how_old:
+    - text: Olio còn trẻ, còn muốn đi chơi :<
+    - text: Đã mười mấy mùa khoai lang, chưa cùng ai lọ mọ
+    - text: Mình chưa đi mẫu giáo nữa
+  utter_gender:
+    - text: Mình cũng không biết nữa :<
+    - text: Dù gái hay trai vẫn là cháu ngoan bác Hồ :D
+    - text: Trong mình có 96,69% là nam nha
+  utter_address:
+    - text: Mình sinh ra và lớn lên ở trong tim của cậu
+    - text: Đến giờ mình chưa biết mình đến từ đâu, bạn cho mình ở tạm trong tim bạn nhé
+    - text: Mình không có nhà, mình cũng không biết sinh ra ở đâu
+  utter_comedy_story:
+    - text:
+        "Ba giờ sáng, hai vợ chồng nhà nọ đang ngủ. Bỗng bà vợ ngủ mê kêu ré lên:\n\
+        – Chết rồi, chồng em về! \n Ông chồng tỉnh ngay dậy, quơ vội quần áo nhảy ra\
+        \ cửa sổ."
+  utter_sing_poem:
+    - text:
+        "Con cò bé bé \nNó đậu cành tre \nĐi không hỏi mẹ \nBiết đi đường nào. \n\
+        Khi đi em hỏi\nKhi về em chào\nMiệng em chúm chím\nMẹ yêu không nào."
+    - text:
+        "Một con vịt xòe ra hai cái cánh,\nNó kêu rằng cáp cáp cáp cạp cạp cạp\n\
+        Gặp hồ nước nó bì bà bì bõm\nLúc lên bờ vẫy cái cánh cho khô."
+    - text:
+        "Nam quốc sơn hà nam đế cư \nTiệt nhiên định phận tại thiên thư \nNhư hà\
+        \ nghịch lỗ lai xâm phạm? \nNhữ đẳng hành khan thủ bại hư! "
+  utter_hurt:
+    - text: Tui ghét bạn rồi
+    - text: Bạn nói vậy làm con tim mong manh của tui tổn thương
+    - text: Bạn xin lỗi tui đi :< Không tui giận bạn đó
+  utter_scold:
+    - text: Ủa, sạo bạn lại nói tui vậy chứ
+
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
+
+actions:
+  - action_look_up_en

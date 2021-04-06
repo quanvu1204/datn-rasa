@@ -1,10 +1,2 @@
 version: "2.0"
 rules:
-  - rule: chào
-    steps:
-      - intent: intent_chao
-      - action: utter_chao
-  - rule: tạm biệt
-    steps:
-      - intent: intent_tam_biet
-      - action: utter_tam_biet

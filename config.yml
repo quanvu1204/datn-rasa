@@ -16,8 +16,9 @@ pipeline: # quá trình huấn luyện bot hiểu đc nlu
   - name: ResponseSelector # lựa chọn câu hỏi trả về
     epochs: 100
     constrain_similarities: true
-  - name: FallbackClassifier # câu hỏi k vào intent nào
-    threshold: 0.7
+  - name: FallbackClassifier
+    threshold: 0.4
+    ambiguity_threshold: 0.1
 
 # Configuration for Rasa Core.
 policies: # đào tạo file stories
@@ -27,6 +28,5 @@ policies: # đào tạo file stories
     epochs: 100
     constrain_similarities: true
   - name: RulePolicy
-    core_fallback_threshold: 0.7
-    core_fallback_action_name: "action_default_fallback"
-    enable_fallback_prediction: True
+    core_fallback_threshold: 0.3
+    core_fallback_action_name: "utter_default"
