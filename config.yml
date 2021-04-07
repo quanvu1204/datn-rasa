@@ -2,13 +2,19 @@ language: vi
 
 pipeline: # quá trình huấn luyện bot hiểu đc nlu
   - name: VietnameseTokenizer
-  - name: RegexFeaturizer # lấy đặc trưng theo regex
   - name: LexicalSyntacticFeaturizer # lấy đặc trưng
   - name: CountVectorsFeaturizer # trích xuất đặc trưng count vector
   - name: CountVectorsFeaturizer
     analyzer: char_wb
     min_ngram: 1
     max_ngram: 4
+  - name: RegexEntityExtractor
+    # text will be processed with case insensitive as default
+    case_sensitive: False
+    # use lookup tables to extract entities
+    use_lookup_tables: True
+    # use regexes to extract entities
+    use_regexes: True
   - name: DIETClassifier # phân loại ý định người dùng và trích xuất thực thể
     epochs: 100
     constrain_similarities: true

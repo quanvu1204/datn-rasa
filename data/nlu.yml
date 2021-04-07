@@ -135,6 +135,7 @@ nlu:
       - dịch từ [afternoon](enword)
       - [beautiful](enword) nghĩa là gì
       - [handsome](enword) nghĩa tiếng việt là gì
+      - [handsome](enword) tiếng việt nghĩa là gì
       - tôi cần tra từ [happy](enword)
       - tra nghĩa của từ [happy](enword)
 
@@ -205,7 +206,3 @@ nlu:
       - bạn tên gì thế
       - tên của bạn là gì
       - bạn tên gì
-
-  - lookup: enword
-    examples: |
-      resources/english.txt

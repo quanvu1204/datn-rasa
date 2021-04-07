@@ -97,7 +97,7 @@ responses:
     - text: Làm gì mà la dữ vậy
     - text: hihi =)
   utter_hello:
-    - text: Chào cậu
+    - text: Chào bạn
   utter_how_are_u:
     - text: Tôi cực kì khỏe luôn nhé
     - text: Bữa trước cô bói nói tui sống thọ hơn 200 tuổi
@@ -108,7 +108,7 @@ responses:
     - text: Tôi là Beem
     - text: Mọi người gọi tôi là ngáo nhưng tôi thích Beem hơn
     - text: Bố đặt tên tôi là Beem
-    - text: Nhìn thì giống Bee, nó ngon nhưng tôi là Beem
+    - text: Nhìn thì giống Bee, nó là ong nhưng tôi là Beem, chatbot nha
     - text: B-E-E-M nhaaaa
   utter_how_old:
     - text: Olio còn trẻ, còn muốn đi chơi :<

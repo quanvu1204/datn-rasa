@@ -22,9 +22,9 @@ class ActionLookUpWordDictionary(Action):
         if not word:
             dispatcher.utter_message("Ối chà chà!, từ này tớ chưa học đến rồi. Bạn tra từ khác nha :D")
             return []
-        url = 'https://api.tracau.vn/WBBcwnwQpV89/s/{}/en'.format(word)
-        response = requests.get(url).text
-        try:
+        try:        
+            url = 'https://api.tracau.vn/WBBcwnwQpV89/s/{}/en'.format(word)
+            response = requests.get(url).text
             dispatcher.utter_message("Nghĩa của từ " + word + " là: " + json.loads(response)['sentences'][0]['fields']['vi'])
         except Exception:
             dispatcher.utter_message("Ối chà chà!, từ này tớ chưa học đến rồi. Bạn tra từ khác nha :D")
