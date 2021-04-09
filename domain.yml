@@ -111,8 +111,8 @@ responses:
     - text: Nhìn thì giống Bee, nó là ong nhưng tôi là Beem, chatbot nha
     - text: B-E-E-M nhaaaa
   utter_how_old:
-    - text: Olio còn trẻ, còn muốn đi chơi :<
-    - text: Đã mười mấy mùa khoai lang, chưa cùng ai lọ mọ
+    - text: Beem còn trẻ, còn muốn đi chơi :<
+    - text: Đã hai mươi mấy mùa khoai lang, chưa cùng ai lọ mọ
     - text: Mình chưa đi mẫu giáo nữa
   utter_gender:
     - text: Mình cũng không biết nữa :<
