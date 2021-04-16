@@ -145,3 +145,13 @@ stories:
     steps:
       - intent: look_up_english
       - action: action_look_up_en
+
+  - story: get latest totals covid
+    steps:
+      - intent: ask_covid_all
+      - action: action_get_latest_totals
+
+  - story: get latest totals covid by country
+    steps:
+      - intent: ask_covid_by_country
+      - action: action_get_latest_totals_by_country

@@ -24,12 +24,18 @@ intents:
   - scold
   - ask_love
   - look_up_english
+  - ask_covid_by_country
+  - ask_covid_all
 
 entities:
   - enword
+  - country
 
 slots:
   enword:
+    type: text
+    influence_conversation: false
+  country:
     type: text
     influence_conversation: false
 
@@ -150,3 +156,5 @@ session_config:
 
 actions:
   - action_look_up_en
+  - action_get_latest_totals
+  - action_get_latest_totals_by_country

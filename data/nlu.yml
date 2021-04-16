@@ -206,3 +206,21 @@ nlu:
       - bạn tên gì thế
       - tên của bạn là gì
       - bạn tên gì
+  
+  - intent: ask_covid_by_country
+    examples: |
+      - tình hình covid ở [Việt Nam](country)
+      - ở [Mỹ](country) có bao nhiêu trường hợp nhiễm rồi
+      - cho xem tình hình dịch bệnh ở [Thái Lan](country) đi
+      - xem thống kê dịch bệnh ở [Hàn Quốc](country)
+      - dịch bệnh ở [Lào](country) thế nào rồi   
+      - dịch bệnh ở [Nhật Bản](country) tiến triển ra sao rồi   
+
+  - intent: ask_covid_all
+    examples: |
+      - tình hình dịch bệnh thế nào  
+      - dịch bệnh tiến triển thế nào  
+      - xem thống kê dịch bệnh 
+      - xem chi tiết dịch bệnh
+      - dịch bệnh thế nào rồi 
+      - dịch bệnh ra sao rồi 
