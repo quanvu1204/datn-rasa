@@ -2,8 +2,26 @@ language: vi
 
 pipeline: # quá trình huấn luyện bot hiểu đc nlu
   - name: VietnameseTokenizer
-  - name: LexicalSyntacticFeaturizer # lấy đặc trưng
-  - name: CountVectorsFeaturizer # trích xuất đặc trưng count vector
+  - name: "CRFEntityExtractor"
+    "BILOU_flag": True
+    "features": [
+      ["low", "title", "upper"],
+      [
+        "bias",
+        "low",
+        "prefix5",
+        "prefix2",
+        "suffix5",
+        "suffix3",
+        "suffix2",
+        "upper",
+        "title",
+        "digit",
+        "pattern",
+      ],
+      ["low", "title", "upper"],
+    ]
+  - name: CountVectorsFeaturizer # trích xuất đặc trưng
   - name: CountVectorsFeaturizer
     analyzer: char_wb
     min_ngram: 1
@@ -15,6 +33,10 @@ pipeline: # quá trình huấn luyện bot hiểu đc nlu
     use_lookup_tables: True
     # use regexes to extract entities
     use_regexes: True
+  - name: rasa_nlu_examples.featurizers.dense.BytePairFeaturizer
+    lang: vi
+    vs: 1000
+    dim: 25
   - name: DIETClassifier # phân loại ý định người dùng và trích xuất thực thể
     epochs: 100
     constrain_similarities: true
@@ -23,8 +45,7 @@ pipeline: # quá trình huấn luyện bot hiểu đc nlu
     epochs: 100
     constrain_similarities: true
   - name: FallbackClassifier
-    threshold: 0.4
-    ambiguity_threshold: 0.1
+    threshold: 0.4 # tất cả các dự đoán khác nằm dưới ngưỡng 0.4
 
 # Configuration for Rasa Core.
 policies: # đào tạo file stories
@@ -34,5 +55,5 @@ policies: # đào tạo file stories
     epochs: 100
     constrain_similarities: true
   - name: RulePolicy
-    core_fallback_threshold: 0.3
+    core_fallback_threshold: 0.3 # hành động sẽ được áp dụng nếu k có dự đoán nào trên 0.3
     core_fallback_action_name: "utter_default"

@@ -11,6 +11,7 @@ from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from googletrans import Translator
+import pycountry
 import requests
 import json
 
@@ -40,17 +41,16 @@ class ActionGetLatestTotalsCovidByCountry(Action):
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker,  domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         name = str(tracker.get_slot('country')).lower()
-        country = translator.translate(name, src="vi", dest='en')
         try:
-            import requests
-            url = "https://covid-19-data.p.rapidapi.com/country"
-            querystring = {"name": country.text}
+            country = translator.translate(name, src="vi", dest='en')
+            country_code = pycountry.countries.search_fuzzy(country.text)
+            url = "https://covid-19-data.p.rapidapi.com/country/code"
+            querystring = {"code": country_code[0].alpha_2}
             headers = {
                 'x-rapidapi-key': "e116b345b9msh0917524f228b7ddp1a37fdjsn11a357103197",
                 'x-rapidapi-host': "covid-19-data.p.rapidapi.com"
                 }
             response = requests.request("GET", url, headers=headers, params=querystring)
-            print(response.text)    
             dispatcher.utter_message(
                 "Theo nguồn tin mật từ chính phủ " + str(tracker.get_slot('country')) + " thì tới thời điểm này: \n"
                 "Số người nhiễm bệnh: " + str(json.loads(response.text)[0]['confirmed']) + " người.\n" + 
@@ -58,7 +58,7 @@ class ActionGetLatestTotalsCovidByCountry(Action):
                 "Số người nguy kịch: " + str(json.loads(response.text)[0]['critical']) + " người.\n" + 
                 "Số người chết: " + str(json.loads(response.text)[0]['deaths']) + " người.")   
         except Exception:
-            dispatcher.utter_message("Ối chà chà!, từ này tớ chưa học đến rồi. Bạn tra từ khác nha :D")
+            dispatcher.utter_message("Ối chà chà!, có vẻ như đất nước này tớ không tra ra được rồi. Bạn tra thử nước khác nha ^^")
             return []
         return []
 
@@ -67,7 +67,7 @@ class ActionGetLatestTotalsCovid(Action):
         return 'action_get_latest_totals'
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker,  domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        try:        
+        try:
             url = "https://covid-19-data.p.rapidapi.com/totals"
             querystring = {"format":"json"}
             headers = {

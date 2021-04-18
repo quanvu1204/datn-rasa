@@ -1,0 +1,258 @@
+version: "2.0"
+nlu:
+  - lookup: country
+    examples: |
+      - Việt Nam
+      - Campuchia
+      - Lào
+      - Thái Lan
+      - Myanmar
+      - Malaysia
+      - Singapore
+      - Indonesia
+      - Brunei
+      - Philippines
+      - Đông Timor
+      - Trung Quốc
+      - Nhật Bản
+      - Mông Cổ
+      - Hàn Quốc
+      - CHDCND Triều Tiên
+      - Đài Loan
+      - Hong Kong
+      - Macau
+      - Ấn Độ
+      - Pakistan
+      - Bangladesh
+      - Nepal
+      - Bhutan
+      - Sri Lanka
+      - Maldives
+      - British Indian Ocean Territory
+      - Afghanistan
+      - Kazakhstan
+      - Uzbekistan
+      - Turkmenistan
+      - Tajikistan
+      - Kyrgyzstan
+      - Iran
+      - Iraq
+      - Saudi Arabia
+      - Kuwait
+      - Qatar
+      - Bahrain
+      - Palestine
+      - Israel
+      - Các tiểu vương quốc Ả Rập thống nhất
+      - Oman
+      - Yemen
+      - Jordan
+      - Syria
+      - Lebanon
+      - Turkey
+      - Cyprus
+      - Northern Cyprus
+      - Akrotiri và Dhekelia
+      - Azerbaijan
+      - Armenia
+      - Gruzia
+      - Abkhazia
+      - Nam Ossetia
+      - Nagorno-Karabakh
+      - Thụy Điển
+      - Phần Lan
+      - Na Uy
+      - Estonia
+      - Latvia
+      - Litva
+      - Đan Mạch
+      - Vương quốc Liên hiệp Anh và Bắc Ireland
+      - Ireland
+      - Iceland
+      - Quần đảo Faroe
+      - Đảo Man
+      - Jersey
+      - Guernsey
+      - Svalbard
+      - Quần đảo Åland
+      - Đức
+      - Pháp
+      - Hà Lan
+      - Bỉ
+      - Thụy Sĩ
+      - Áo
+      - Luxembourg
+      - Liechtenstein
+      - Monaco
+      - Tây Ban Nha
+      - Bồ Đào Nha
+      - Andorra
+      - Gibraltar
+      - Italy
+      - San Marino
+      - Vatican
+      - Malta
+      - Slovenia
+      - Croatia
+      - Bosnia và Herzegovina
+      - Montenegro
+      - Serbia
+      - Kosovo
+      - Albania
+      - Hy Lạp
+      - Cộng hòa Macedonia
+      - Nga
+      - Ukraine
+      - Ba Lan
+      - Belarus
+      - Moldova
+      - Transnistria
+      - Cộng hòa Séc
+      - Slovakia
+      - Hungary
+      - Romania
+      - Bulgaria
+      - Canada
+      - Hoa Kỳ
+      - Greenland
+      - Saint Pierre và Miquelon
+      - Bermuda
+      - Mexico
+      - Belize
+      - Guatemala
+      - El Salvador
+      - Honduras
+      - Nicaragua
+      - Costa Rica
+      - Panama
+      - Brazil
+      - Argentina
+      - Uruguay
+      - Paraguay
+      - Chile
+      - Bolivia
+      - Peru
+      - Ecuador
+      - Colombia
+      - Venezuela
+      - Suriname
+      - Guyana
+      - French Guiana
+      - Quần đảo Falkland
+      - Quần đảo Nam Georgia và Nam Sandwich
+      - Cuba
+      - Jamaica
+      - Haiti
+      - Cộng hòa Dominican
+      - Quần đảo Cayman
+      - Puerto Rico
+      - Quần đảo Virgin thuộc Mỹ
+      - Quần đảo Virgin thuộc Anh
+      - The Bahamas
+      - Quần đảo Turks và Caicos
+      - Saint Kitts và Nevis
+      - Anguilla
+      - Saint Barthélemy
+      - Montserrat
+      - Saba
+      - Sint Eustatius
+      - Dominica
+      - Grenada
+      - Barbados
+      - Saint Vincent và Grenadines
+      - Antigua và Barbuda
+      - Saint Lucia
+      - Trinidad và Tobago
+      - Aruba
+      - Bonaire
+      - Curaçao
+      - Saint Martin
+      - Sint Maarten
+      - Martinique
+      - Guadeloupe
+      - Ai Cập
+      - Libya
+      - Tunisia
+      - Algeria
+      - Maroc
+      - Tây Sahara
+      - Sudan
+      - Nam Phi
+      - Lesotho
+      - Swaziland
+      - Namibia
+      - Botswana
+      - Mauritania
+      - Mali
+      - Niger
+      - Nigeria
+      - Senegal
+      - Gambia
+      - Guinea
+      - Guinea-Bissau
+      - Cape Verde
+      - Sierra Leone
+      - Liberia
+      - Côte d'Ivoire
+      - Burkina Faso
+      - Ghana
+      - Togo
+      - Benin
+      - Saint Helena, Ascension và Tristan da Cunha
+      - Tchad
+      - Cộng hòa Trung Phi
+      - Cameroon
+      - Cộng hòa Dân chủ Congo
+      - Cộng hòa Congo
+      - Gabon
+      - Guinea Xích Đạo
+      - São Tomé và Princípe
+      - Angola
+      - Nam Sudan
+      - Ethiopia
+      - Eritrea
+      - Djibouti
+      - Somalia
+      - Somaliland
+      - Uganda
+      - Rwanda
+      - Burundi
+      - Kenya
+      - Tanzania
+      - Malawi
+      - Mozambique
+      - Zambia
+      - Zimbabwe
+      - Madagascar
+      - Comoros
+      - Seychelles
+      - Mauritius
+      - Réunion
+      - Mayotte
+      - Australia
+      - New Zealand
+      - Đảo Norfolk
+      - Đảo Christmas
+      - Quần đảo Cocos (Keeling)
+      - Papua New Guinea
+      - Palau
+      - Quần đảo Solomon
+      - Vanuatu
+      - Fiji
+      - New Caledonia
+      - Liên bang Micronesia
+      - Kiribati
+      - Quần đảo Marshall
+      - Nauru
+      - Quần đảo Bắc Mariana
+      - Guam
+      - Tuvalu
+      - Tonga
+      - Samoa
+      - Samoa thuộc Mỹ
+      - Polynesia thuộc Pháp
+      - Wallis và Futuna
+      - Quần đảo Cook
+      - Niue
+      - Tokelau
+      - Quần đảo Pitcairn
