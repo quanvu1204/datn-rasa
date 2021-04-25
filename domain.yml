@@ -27,16 +27,27 @@ intents:
   - ask_covid_by_country
   - ask_covid_all
   - ask_devices_list
+  - ask_control_device
 
 entities:
   - enword
   - country
+  - status
+  - device
 
 slots:
   enword:
     type: text
     influence_conversation: false
   country:
+    type: text
+    influence_conversation: false
+  status:
+    type: categorical
+    values:
+      - bật
+      - tắt
+  device:
     type: text
     influence_conversation: false
 
@@ -160,3 +171,4 @@ actions:
   - action_get_latest_totals
   - action_get_latest_totals_by_country
   - action_get_devices_list
+  - action_control_device

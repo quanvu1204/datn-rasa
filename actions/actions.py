@@ -17,8 +17,13 @@ import json
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import db
+import logging
 
 translator = Translator()
+cred = credentials.Certificate("/Users/quanvu/Study/datn-rasa/beem-assistant-firebase-adminsdk-ozdxf-011253b9bc.json")
+firebase_admin.initialize_app(cred, {
+    'databaseURL': 'https://beem-assistant-default-rtdb.firebaseio.com'
+})
 
 class ActionLookUpWordDictionary(Action):
     def name(self) -> Text:
@@ -96,10 +101,6 @@ class ActionGetDeviceStatus(Action):
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker,  domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         try:
-            cred = credentials.Certificate("/Users/quanvu/Study/datn-rasa/beem-assistant-firebase-adminsdk-ozdxf-011253b9bc.json")
-            firebase_admin.initialize_app(cred, {
-                'databaseURL': 'https://beem-assistant-default-rtdb.firebaseio.com'
-            })
             ref = db.reference('/devices')
             devices = ref.get()
             result = ''
@@ -112,6 +113,35 @@ class ActionGetDeviceStatus(Action):
             else:
                 dispatcher.utter_message(result)
         except Exception:
+            logging.exception("message")
+            dispatcher.utter_message("Ái chà có lỗi gì đó chăng, bạn đợi Beem xíu nha :D")
+            return []
+        return []
+
+class ActionControlDevice(Action):
+    def name(self) -> Text:
+        return 'action_control_device'
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker,  domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        device = str(tracker.get_slot('device')).lower()
+        status = str(tracker.get_slot('status')).lower()
+        try:
+            ref = db.reference('/devices')
+            devices = ref.get()
+            foundDevices = False
+            for keyID in devices:
+                if str(devices[keyID]['name']).lower() == device:
+                    foundDevices = True
+            if foundDevices == True:
+                ref.child(keyID).update({
+                    'status': status
+                })
+                dispatcher.utter_message(tracker.get_slot('device') + " đã " + status + ".\nBạn có yêu cầu gì nữa không ạ?")
+            else:
+                dispatcher.utter_message("Không tìm thấy thiết bị bạn yêu cầu, hãy xem lại danh sách thiết bị nhé")
+                
+        except Exception:
+            logging.exception("message")
             dispatcher.utter_message("Ái chà có lỗi gì đó chăng, bạn đợi Beem xíu nha :D")
             return []
         return []

@@ -160,3 +160,8 @@ stories:
     steps:
       - intent: ask_devices_list
       - action: action_get_devices_list
+
+  - story: control device
+    steps:
+      - intent: ask_control_device
+      - action: action_control_device

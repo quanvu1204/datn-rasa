@@ -206,7 +206,7 @@ nlu:
       - bạn tên gì thế
       - tên của bạn là gì
       - bạn tên gì
-  
+
   - intent: ask_covid_by_country
     examples: |
       - tình hình covid ở [Việt Nam](country)
@@ -214,7 +214,7 @@ nlu:
       - cho xem tình hình dịch bệnh ở [Thái Lan](country) đi
       - xem thống kê dịch bệnh ở [Hàn Quốc](country)
       - dịch bệnh ở [Lào](country) thế nào rồi   
-      - dịch bệnh ở [Nhật Bản](country) tiến triển ra sao rồi   
+      - dịch bệnh ở [Nhật Bản](country) tiến triển ra sao rồi
 
   - intent: ask_covid_all
     examples: |
@@ -224,7 +224,7 @@ nlu:
       - xem chi tiết dịch bệnh
       - dịch bệnh thế nào rồi 
       - dịch bệnh ra sao rồi
-      
+
   - intent: ask_devices_list
     examples: |
       - xem danh sách thiết bị  
@@ -232,4 +232,14 @@ nlu:
       - có những thiết bị nào
       - danh sách thiết bị
       - cho xem danh sách thiết bị đi
-      
+
+  - intent: ask_control_device
+    examples: |
+      - [bật](status) [đèn bếp](device)
+      - hãy [bật](status) [công tắc phòng khách](device) cho tôi
+      - [tắt](status) [đèn ngủ](device)
+      - hãy [tắt](status) [tivi](device)
+      - [tắt](status) [đèn](device)
+      - [tắt](status) [công tắc](device)
+      - [bật](status) [công tắc nhà bếp](device)
+      - [bật](status) [ổ cắm](device)
