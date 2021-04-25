@@ -26,6 +26,7 @@ intents:
   - look_up_english
   - ask_covid_by_country
   - ask_covid_all
+  - ask_devices_list
 
 entities:
   - enword
@@ -158,3 +159,4 @@ actions:
   - action_look_up_en
   - action_get_latest_totals
   - action_get_latest_totals_by_country
+  - action_get_devices_list

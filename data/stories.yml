@@ -155,3 +155,8 @@ stories:
     steps:
       - intent: ask_covid_by_country
       - action: action_get_latest_totals_by_country
+
+  - story: get list devices
+    steps:
+      - intent: ask_devices_list
+      - action: action_get_devices_list

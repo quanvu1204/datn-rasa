@@ -223,4 +223,13 @@ nlu:
       - xem thống kê dịch bệnh 
       - xem chi tiết dịch bệnh
       - dịch bệnh thế nào rồi 
-      - dịch bệnh ra sao rồi 
+      - dịch bệnh ra sao rồi
+      
+  - intent: ask_devices_list
+    examples: |
+      - xem danh sách thiết bị  
+      - cho xem danh sách thiết bị
+      - có những thiết bị nào
+      - danh sách thiết bị
+      - cho xem danh sách thiết bị đi
+      
