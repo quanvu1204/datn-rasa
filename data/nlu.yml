@@ -243,3 +243,5 @@ nlu:
       - [tắt](status) [công tắc](device)
       - [bật](status) [công tắc nhà bếp](device)
       - [bật](status) [ổ cắm](device)
+      - [tắt](status) [ổ cắm](device) đi
+      - [bật](status) [đèn](device) lên
