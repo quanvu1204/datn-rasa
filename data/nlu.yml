@@ -245,3 +245,13 @@ nlu:
       - [bật](status) [ổ cắm](device)
       - [tắt](status) [ổ cắm](device) đi
       - [bật](status) [đèn](device) lên
+
+  - intent: ask_weather
+    examples: |
+      - cho xem thời tiết tại [Hà Nội](city)
+      - thời tiết [Hà Nội](city) như thế nào
+      - thời tiết [Hà Nội](city) hôm nay như thế nào
+      - tình hình thời tiết [Hà Nội](city) như thế nào
+      - thời tiết [Hà Nội](city)
+      - [Hà Nội](city) hôm nay như thế nào
+      - thời tiết tại [Hà Nội](city)

@@ -129,17 +129,44 @@ class ActionControlDevice(Action):
             ref = db.reference('/devices')
             devices = ref.get()
             foundDevices = False
+            ip = ''
             for keyID in devices:
                 if str(devices[keyID]['name']).lower() == device:
                     foundDevices = True
+                    ip = str(devices[keyID]['ip'])
             if foundDevices == True:
                 ref.child(keyID).update({
                     'status': status
                 })
+                data = {'status': 'on' if status == 'bật' else 'off', 'ip': ip }
+                requests.put('http://localhost:4000/device/update', data = data)
                 dispatcher.utter_message(tracker.get_slot('device') + " đã " + status + ".\nBạn có yêu cầu gì nữa không ạ?")
             else:
                 dispatcher.utter_message("Không tìm thấy thiết bị bạn yêu cầu, hãy xem lại danh sách thiết bị nhé")
                 
+        except Exception:
+            logging.exception("message")
+            dispatcher.utter_message("Ái chà có lỗi gì đó chăng, bạn đợi Beem xíu nha :D")
+            return []
+        return []
+
+class ActionWeather(Action):
+    def name(self) -> Text:
+        return 'action_get_weather'
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker,  domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        city = str(tracker.get_slot('city')).lower()
+        try:
+            response = requests.get('http://localhost:4000/common/get-all-city', params={'name': city})
+            code = response.json()['data']['locationKey']
+            weatherUrl = 'http://dataservice.accuweather.com/forecasts/v1/daily/5day/{}?language=vi&apikey=MYK2ft8867WcdABYvHtHABVDOJ4Dtrrd'.format(code)
+            resWeather = requests.get(weatherUrl)
+            result = resWeather.json()
+            dispatcher.utter_message(
+                "Thời tiết hôm nay: Nhiệt độ từ " + str(round((result['DailyForecasts'][0]['Temperature']['Minimum']['Value'] - 32) * 5 / 9)) + " độ C đến " + str(round((result['DailyForecasts'][0]['Temperature']['Maximum']['Value'] - 32) * 5 / 9)) + " độ C. Ban ngày: " + result['DailyForecasts'][0]['Day']['IconPhrase'] + ", ban đêm: " + result['DailyForecasts'][0]['Night']['IconPhrase'] + ".\n" + 
+                "Dự báo thời tiết ngày mai: Nhiệt độ từ " + str(round((result['DailyForecasts'][1]['Temperature']['Minimum']['Value'] - 32) * 5 / 9)) + " độ C đến " + str(round((result['DailyForecasts'][1]['Temperature']['Maximum']['Value'] - 32) * 5 / 9)) + " độ C. Ban ngày: " + result['DailyForecasts'][1]['Day']['IconPhrase'] + ", ban đêm: " + result['DailyForecasts'][1]['Night']['IconPhrase'] + ".\n" + 
+                "Bonus thêm ngày hôm kia nữa nè: Nhiệt độ từ " + str(round((result['DailyForecasts'][2]['Temperature']['Minimum']['Value'] - 32) * 5 / 9)) + " độ C đến " + str(round((result['DailyForecasts'][2]['Temperature']['Maximum']['Value'] - 32) * 5 / 9)) + " độ C. Ban ngày: " + result['DailyForecasts'][2]['Day']['IconPhrase'] + ", ban đêm: " + result['DailyForecasts'][2]['Night']['IconPhrase'])
+            dispatcher.utter_message("Nhớ lưu ý nè: " + result['Headline']['Text'])
         except Exception:
             logging.exception("message")
             dispatcher.utter_message("Ái chà có lỗi gì đó chăng, bạn đợi Beem xíu nha :D")

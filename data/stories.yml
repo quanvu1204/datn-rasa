@@ -165,3 +165,8 @@ stories:
     steps:
       - intent: ask_control_device
       - action: action_control_device
+
+  - story: ask weather
+    steps:
+      - intent: ask_weather
+      - action: action_get_weather

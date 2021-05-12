@@ -34,12 +34,16 @@ entities:
   - country
   - status
   - device
+  - city
 
 slots:
   enword:
     type: text
     influence_conversation: false
   country:
+    type: text
+    influence_conversation: false
+  city:
     type: text
     influence_conversation: false
   status:
@@ -172,3 +176,4 @@ actions:
   - action_get_latest_totals_by_country
   - action_get_devices_list
   - action_control_device
+  - action_get_weather
