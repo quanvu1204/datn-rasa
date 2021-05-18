@@ -215,6 +215,7 @@ nlu:
       - xem thống kê dịch bệnh ở [Hàn Quốc](country)
       - dịch bệnh ở [Lào](country) thế nào rồi   
       - dịch bệnh ở [Nhật Bản](country) tiến triển ra sao rồi
+      - dịch bệnh ở [Việt Nam](country)
 
   - intent: ask_covid_all
     examples: |
@@ -255,3 +256,11 @@ nlu:
       - thời tiết [Hà Nội](city)
       - [Hà Nội](city) hôm nay như thế nào
       - thời tiết tại [Hà Nội](city)
+
+  - intent: ask_lottery
+    examples: |
+      - Cho anh xem kết quả đê
+      - Kết quả xổ số hôm này thế nào
+      - Mày cho anh hỏi kết quả tý
+      - Có kết quả chưa
+      - Có kết quả xổ số hôm nay chưa

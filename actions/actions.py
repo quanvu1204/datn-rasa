@@ -15,6 +15,7 @@ import pycountry
 import requests
 import json
 import firebase_admin
+import feedparser
 from firebase_admin import credentials
 from firebase_admin import db
 import logging
@@ -171,4 +172,16 @@ class ActionWeather(Action):
             logging.exception("message")
             dispatcher.utter_message("Ái chà có lỗi gì đó chăng, bạn đợi Beem xíu nha :D")
             return []
+        return []
+
+class ActionLottery(Action):
+    def name(self) -> Text:
+        return 'action_get_lottery'
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker,  domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        url = 'https://xskt.com.vn/rss-feed/mien-bac-xsmb.rss'
+        feed_cnt = feedparser.parse(url)
+        first_node = feed_cnt['entries']
+        return_msg = first_node[0]['title'] + "\n" + first_node[0]['description']
+        dispatcher.utter_message(return_msg)
         return []

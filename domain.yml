@@ -28,6 +28,7 @@ intents:
   - ask_covid_all
   - ask_devices_list
   - ask_control_device
+  - ask_lottery
 
 entities:
   - enword
@@ -177,3 +178,4 @@ actions:
   - action_get_devices_list
   - action_control_device
   - action_get_weather
+  - action_get_lottery
