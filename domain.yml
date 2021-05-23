@@ -59,7 +59,6 @@ slots:
 responses:
   utter_greet:
     - text: Này! Bạn khỏe chứ?
-    - text: Bạn còn làm ở đó hong ta <3
     - text: Dạo này bạn sao rồi?
     - text: Bạn cần tui giúp gì nè ^^
   utter_cheer_up:
@@ -77,10 +76,9 @@ responses:
   utter_goodbye:
     - text: Tạm biệt bạn
   utter_default:
-    - text: Bạn nói cái gì tui hỏng có hỉu
-    - text: Xung quanh anh toàn là nước eiii
-    - text: BeemBot là bạn của mọi người
-    - text: Trời trong xanh, gió long lanh eii
+    - text: Xin lỗi năng lực của Beem có giới hạn :<
+    - text: Bạn nói cái gì Been hông có hiểu
+    - text: Beem mới học qua mẫu giáo thôi, chưa thể hiểu được câu vậy đâuuu :<
   utter_nothing:
     - text: Không có gì đâu nè
     - text: hihi. Không có chi
@@ -102,9 +100,9 @@ responses:
     - text: Tui biết coi thời tiết
   utter_author:
     - text: Là bố tui á
-    - text: Má tui bảo nhặt tui từ thùng rác :|
+    - text: Bố tui bảo nhặt tui từ thùng rác :|
     - text: Tui nghĩ tui là con rơi á :(
-    - text: Tui được kể là nhặt từ trong bụi chuối :|
+    - text: Tui được bố kể là nhặt từ trong bụi chuối :|
   utter_reply_help:
     - text: Có chuyện gì thế?
     - text: Bạn cần gì nào?
