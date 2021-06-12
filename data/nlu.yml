@@ -94,6 +94,8 @@ nlu:
       - chào buổi sáng
       - chào buổi tối
       - chào buổi chiều
+      - hello
+      - hi
 
   - intent: help
     examples: |
@@ -149,6 +151,8 @@ nlu:
       - tôi cảm thấy rất tuyệt
       - tôi rất khỏe
       - tôi rất tốt
+      - good
+      - ok tốt
 
   - intent: mood_unhappy
     examples: |
