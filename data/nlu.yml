@@ -224,6 +224,8 @@ nlu:
   - intent: ask_covid_all
     examples: |
       - tình hình dịch bệnh thế nào  
+      - tình hình dịch bệnh trên thế giới  
+      - tình hình dịch bệnh thế giới như thế nào
       - dịch bệnh tiến triển thế nào  
       - xem thống kê dịch bệnh 
       - xem chi tiết dịch bệnh
@@ -268,3 +270,12 @@ nlu:
       - Mày cho anh hỏi kết quả tý
       - Có kết quả chưa
       - Có kết quả xổ số hôm nay chưa
+
+  - intent: ask_safe
+    examples: |
+      - tôi nên làm gì
+      - cần làm gì trước đại dịch covid
+      - chúng ta cần làm gì để chống dịch
+      - cần làm gì để chống lại dịch bệnh
+      - chúng ta nên làm gì
+      - chúng ta cần làm gì để chống dịch covid

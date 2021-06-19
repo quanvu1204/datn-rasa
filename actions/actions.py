@@ -101,16 +101,16 @@ class ActionGetDeviceStatus(Action):
         return 'action_get_devices_list'
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker,  domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        val = tracker.get_slot('session_started_metadata')
         try:
-            ref = db.reference('/devices')
-            devices = ref.get()
             result = ''
-
-            for keyID in devices:
-                result = result + 'Tên thiết bị: ' + devices[keyID]['name'] + ', trạng thái: ' + devices[keyID]['status']
-
+            response = requests.get('http://localhost:4000/device/find-by-id/{}'.format(val))
+            res = response.json()
+            for item in res['data']['rows']:
+                result = result + 'Tên thiết bị: ' + item['device']['name'] + ', trạng thái: ' + item['device']['status'] + '\n'
             if result == '':
                 dispatcher.utter_message('Chưa có thiết bị nào hết, bạn hãy quét thiết bị mới và thêm vào nhaaa !')
+            
             else:
                 dispatcher.utter_message(result)
         except Exception:

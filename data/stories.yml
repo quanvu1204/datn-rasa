@@ -175,3 +175,7 @@ stories:
     steps:
       - intent: ask_lottery
       - action: action_get_lottery
+  - story: ask safe home
+    steps:
+      - intent: ask_safe
+      - action: utter_safe
