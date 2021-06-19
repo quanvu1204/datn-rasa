@@ -4,12 +4,17 @@ nlu:
   - intent: address
     examples: |
       - nhà bạn ở đâu
+      - ở đâu
       - bạn ở đâu
       - bạn ở chỗ nào
       - bạn ở nhà nào
       - địa chỉ nhà bạn chỗ nào
       - địa chỉ nhà bạn ở đâu
       - bạn sinh ra ở đâu
+      - địa chỉ chỗ nào
+      - mày ở chỗ nào
+      - cho bố xin cái địa chỉ
+      - địa chỉ
 
   - intent: affirm
     examples: |
@@ -20,11 +25,16 @@ nlu:
       - chính xác
       - ok
       - okay
+      - có vẻ được đó
+      - được
 
   - intent: ask_author
     examples: |
       - ai là người tạo ra bạn
       - ai đẻ ra bạn
+      - người nào tạo ra mày
+      - ai tạo ra bạn
+      - bạn được ai tạo ra
 
   - intent: ask_love
     examples: |
@@ -33,6 +43,9 @@ nlu:
       - tôi làm bạn của bạn được không
       - tôi thích bạn được không
       - tôi thích bạn
+      - love you so much
+      - tôi yêu bạn
+      - tớ thích cậu rồi đó
 
   - intent: ask_relationship
     examples: |
@@ -40,11 +53,17 @@ nlu:
       - bạn có bạn không
       - bạn có thích ai không
       - bạn có yêu ai không
+      - người yêu mày đâu
+      - thế đã có ai yêu chưa
+      - vườn hồng đã có ai vào hay chưa
+      - tình trạng quan hệ như thế nào nào
 
   - intent: comedy_story
     examples: |
       - bạn biết kể chuyện không
       - kể chuyện cho mình nghe đi
+      - kể một câu chuyện coi
+      - kể cái gì đó vui vui đi
 
   - intent: deny
     examples: |
@@ -56,6 +75,9 @@ nlu:
       - đừng như vậy chứ
       - không đời nào
       - hoàn toàn không
+      - không
+      - no
+      - dẹp
 
   - intent: gender
     examples: |
@@ -78,6 +100,10 @@ nlu:
       - hẹn gặp lại
       - gặp lại sau
       - lúc khác gặp lại
+      - bye
+      - gặp lại sau
+      - gặp lại sau nhé
+      - có gì nói chuyện sau nhé
 
   - intent: goodnight
     examples: |
@@ -85,6 +111,10 @@ nlu:
       - chúc bạn ngủ ngon
       - ngủ ngon nha
       - ngủ ngon
+      - g9
+      - goodnight
+      - ngủ ngon nhé
+      - có giấc mơ đẹp nhé
 
   - intent: greet
     examples: |
@@ -96,6 +126,8 @@ nlu:
       - chào buổi chiều
       - hello
       - hi
+      - chào bạn
+      - hế lô bot
 
   - intent: help
     examples: |
@@ -103,12 +135,16 @@ nlu:
       - giúp tôi
       - giúp với
       - cứu
+      - giúp tớ với
+      - tôi có chuyện nhờ bạn
+      - bạn có thể giúp tôi nái này không
 
   - intent: how_are_u
     examples: |
       - bạn có khỏe không
       - dạo này bạn thế nào
       - bạn sao rồi
+      - tình hình dạo này thế nào
 
   - intent: how_old
     examples: |
@@ -153,6 +189,8 @@ nlu:
       - tôi rất tốt
       - good
       - ok tốt
+      - ok good
+      - giỏi đấy
 
   - intent: mood_unhappy
     examples: |
@@ -189,6 +227,10 @@ nlu:
       - đọc thơ cho mình nghe
       - bạn biết đọc thơ không
       - hát đi bạn
+      - hát một bài thử coi
+      - đọc thơ
+      - hát
+      - làm gì vui vui đi
 
   - intent: suprise
     examples: |
@@ -196,6 +238,7 @@ nlu:
       - trời ơi
       - quao
       - wow
+      - ồ
 
   - intent: thanks
     examples: |
@@ -220,6 +263,8 @@ nlu:
       - dịch bệnh ở [Lào](country) thế nào rồi   
       - dịch bệnh ở [Nhật Bản](country) tiến triển ra sao rồi
       - dịch bệnh ở [Việt Nam](country)
+      - đại dịch  ở [Việt Nam](country) như thế nào rồi
+      - covid ở [Việt Nam](country) như thế nào rồi
 
   - intent: ask_covid_all
     examples: |
@@ -231,6 +276,7 @@ nlu:
       - xem chi tiết dịch bệnh
       - dịch bệnh thế nào rồi 
       - dịch bệnh ra sao rồi
+      - thế giới hiện nay ra sao rồi
 
   - intent: ask_devices_list
     examples: |
@@ -239,6 +285,8 @@ nlu:
       - có những thiết bị nào
       - danh sách thiết bị
       - cho xem danh sách thiết bị đi
+      - xem danh sách thiết bị
+      - có những thiết bị naò
 
   - intent: ask_control_device
     examples: |
@@ -252,6 +300,8 @@ nlu:
       - [bật](status) [ổ cắm](device)
       - [tắt](status) [ổ cắm](device) đi
       - [bật](status) [đèn](device) lên
+      - [bật](status) [quạt](device)
+      - [bật](status) [quạt](device) lên
 
   - intent: ask_weather
     examples: |
@@ -262,14 +312,20 @@ nlu:
       - thời tiết [Hà Nội](city)
       - [Hà Nội](city) hôm nay như thế nào
       - thời tiết tại [Hà Nội](city)
+      - hôm nay [Hà Nội](city) bao nhiêu độ
+      - nhiệt độ [Hà Nội](city) hôm nay
 
   - intent: ask_lottery
     examples: |
-      - Cho anh xem kết quả đê
-      - Kết quả xổ số hôm này thế nào
-      - Mày cho anh hỏi kết quả tý
-      - Có kết quả chưa
-      - Có kết quả xổ số hôm nay chưa
+      - cho anh xem kết quả đê
+      - kết quả xổ số hôm này thế nào
+      - mày cho anh hỏi kết quả tý
+      - có kết quả chưa
+      - có kết quả xổ số hôm nay chưa
+      - kết quả xổ số hôm nay
+      - kết quả hôm nay như thế nào
+      - xổ số miền Bắc
+      - xổ số
 
   - intent: ask_safe
     examples: |
@@ -279,3 +335,4 @@ nlu:
       - cần làm gì để chống lại dịch bệnh
       - chúng ta nên làm gì
       - chúng ta cần làm gì để chống dịch covid
+      - làm gì bây giờ

@@ -61,7 +61,7 @@ responses:
   utter_greet:
     - text: Này! Bạn khỏe chứ?
     - text: Dạo này bạn sao rồi?
-    - text: Bạn cần tui giúp gì nè ^^
+    - text: Bạn cần tôi giúp gì nè ^^
   utter_cheer_up:
     - text: "Một chút đáng yêu:"
       image: https://i.imgur.com/nGF1K8f.jpg
@@ -71,14 +71,11 @@ responses:
   utter_happy:
     - text: Tuyệt! Tôi thích nghe điều đó
   utter_nextwork:
-    - text: Bạn còn cần gì nữa hem nè :<
-  utter_timez:
-    - text: "Bây giờ ở {timezone} là:"
+    - text: Bạn cần tớ giúp gì nữa không?
   utter_goodbye:
     - text: Tạm biệt bạn
   utter_default:
     - text: Xin lỗi năng lực của Beem có giới hạn :<
-    - text: Bạn nói cái gì Been hông có hiểu
     - text: Beem mới học qua mẫu giáo thôi, chưa thể hiểu được câu vậy đâuuu :<
   utter_nothing:
     - text: Không có gì đâu nè
@@ -128,7 +125,7 @@ responses:
     - text: Mệt lắm nhưng vẫn ngồi nói chuyện với bạn nè
   utter_what_name:
     - text: Tôi là Beem
-    - text: Mọi người gọi tôi là ngáo nhưng tôi thích Beem hơn
+    - text: Mọi người gọi tôi là ngáo nhưng tôi thích mọi người gọi là Beem hơn
     - text: Bố đặt tên tôi là Beem
     - text: Nhìn thì giống Bee, nó là ong nhưng tôi là Beem, chatbot nha
     - text: B-E-E-M nhaaaa
@@ -168,7 +165,7 @@ responses:
   utter_safe:
     - text: 
         "Bạn có thể tự bảo vệ bạn và người xung quanh bằng cách tuân theo thông điệp 5K của chính phủ nghe: 
-        \nKhẩu trang \nKhử khuẩn \nKhoảng cách \nKhông tụ tập đông người \nKhai báo y tế nhé <3"
+        \nKhẩu trang \nKhử khuẩn \nKhoảng cách \nKhông tụ tập đông người \nKhai báo y tế nhaa <3"
 
 session_config:
   session_expiration_time: 60

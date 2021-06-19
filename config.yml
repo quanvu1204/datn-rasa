@@ -17,8 +17,8 @@ pipeline:
     use_regexes: True
   - name: rasa_nlu_examples.featurizers.dense.BytePairFeaturizer
     lang: vi
-    vs: 2000
-    dim: 50
+    vs: 100000
+    dim: 100
   - name: DIETClassifier
     epochs: 100
     constrain_similarities: true
