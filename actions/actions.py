@@ -19,6 +19,7 @@ import feedparser
 from firebase_admin import credentials
 from firebase_admin import db
 import logging
+import random
 
 translator = Translator()
 cred = credentials.Certificate("/Users/quanvu/Study/datn-rasa/beem-assistant-firebase-adminsdk-ozdxf-011253b9bc.json")
@@ -131,12 +132,14 @@ class ActionControlDevice(Action):
             devices = ref.get()
             foundDevices = False
             ip = ''
+            key = ''
             for keyID in devices:
                 if str(devices[keyID]['name']).lower() == device:
                     foundDevices = True
+                    key = keyID
                     ip = str(devices[keyID]['ip'])
             if foundDevices == True:
-                ref.child(keyID).update({
+                ref.child(key).update({
                     'status': status
                 })
                 data = {'status': 'on' if status == 'bật' else 'off', 'ip': ip }
@@ -184,4 +187,26 @@ class ActionLottery(Action):
         first_node = feed_cnt['entries']
         return_msg = first_node[0]['title'] + "\n" + first_node[0]['description']
         dispatcher.utter_message(return_msg)
+        return []
+
+class ActionGetFood(Action):
+    def name(self) -> Text:
+        return 'action_get_food'
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker,  domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        try:
+            url = 'https://naungonmoingay.com/feed/'
+            feed_cnt = feedparser.parse(url)
+            first_node = feed_cnt['entries']
+            food = random.choice(first_node)
+            ns = food['content']
+            return_msg = "Hôm nay tôi sẽ chọn cho bạn món: " + food['title']
+            return_link = "Link: " + food['link']
+            dispatcher.utter_message(return_msg)
+            dispatcher.utter_message(image=str(ns[0]['value'].split('src="')[1].split('"')[0]))
+            dispatcher.utter_message(return_link)
+            return []
+        except Exception:
+            logging.exception("message")
+            dispatcher.utter_message("Ái chà có lỗi gì đó chăng, bạn đợi Beem xíu nha :D")
         return []

@@ -31,6 +31,7 @@ intents:
   - ask_lottery
   - ask_safe
   - ask_food_for_animal
+  - ask_food
 
 entities:
   - enword
@@ -187,3 +188,4 @@ actions:
   - action_control_device
   - action_get_weather
   - action_get_lottery
+  - action_get_food

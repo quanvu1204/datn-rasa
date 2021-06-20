@@ -187,3 +187,8 @@ stories:
       - slot_was_set:
         - animal
       - action: utter_food_for_animal
+
+  - story: ask food
+    steps:
+      - intent: ask_food
+      - action: action_get_food

@@ -344,3 +344,18 @@ nlu:
       - [mèo](animal) ăn gì
       - [mèo](animal) có ăn được cá không
       - nên cho [mèo](animal) ăn xương không
+  
+  - intent: ask_food
+    examples: |
+      - Hôm nay ăn gì
+      - Nên ăn gì đây
+      - Trưa nay nên ăn gì
+      - Tối nay nên nấu món gì
+      - Sáng nay nên ăn gì đây
+      - Thực đơn bữa sáng
+      - Thực đơn trưa
+      - Bữa tối
+      - Bữa sáng
+      - Tối ăn gì đây nhỉ
+      - Công thức nấu ăn
+      - Nấu ăn
