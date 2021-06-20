@@ -175,7 +175,15 @@ stories:
     steps:
       - intent: ask_lottery
       - action: action_get_lottery
+
   - story: ask safe home
     steps:
       - intent: ask_safe
       - action: utter_safe
+
+  - story: ask food for animal
+    steps:
+      - intent: ask_food_for_animal
+      - slot_was_set:
+        - animal
+      - action: utter_food_for_animal

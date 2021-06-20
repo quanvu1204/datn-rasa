@@ -30,6 +30,7 @@ intents:
   - ask_control_device
   - ask_lottery
   - ask_safe
+  - ask_food_for_animal
 
 entities:
   - enword
@@ -37,6 +38,7 @@ entities:
   - status
   - device
   - city
+  - animal
 
 slots:
   enword:
@@ -54,6 +56,9 @@ slots:
       - bật
       - tắt
   device:
+    type: text
+    influence_conversation: false
+  animal:
     type: text
     influence_conversation: false
 
@@ -163,9 +168,12 @@ responses:
   utter_scold:
     - text: Ủa, sạo bạn lại nói tui vậy chứ
   utter_safe:
-    - text: 
-        "Bạn có thể tự bảo vệ bạn và người xung quanh bằng cách tuân theo thông điệp 5K của chính phủ nghe: 
+    - text:
+        "Bạn có thể tự bảo vệ bạn và người xung quanh bằng cách tuân theo thông điệp 5K của chính phủ nghe:
         \nKhẩu trang \nKhử khuẩn \nKhoảng cách \nKhông tụ tập đông người \nKhai báo y tế nhaa <3"
+  utter_food_for_animal:
+    - text: "Nên mua đồ ăn dành riêng cho {animal} tại siêu thị hoặc tạp hoá nha bạn <3\nĐừng cho ăn linh tinh dễ bệnh lắm."
+    - text: "Để bảo vệ {animal} của bạn thì nên mua thức ăn cho {animal} tại siêu thị hoặc tạp hoá dành riêng cho {animal} nha bạn <3."
 
 session_config:
   session_expiration_time: 60

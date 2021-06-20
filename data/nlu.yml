@@ -336,3 +336,11 @@ nlu:
       - chúng ta nên làm gì
       - chúng ta cần làm gì để chống dịch covid
       - làm gì bây giờ
+
+  - intent: ask_food_for_animal
+    examples: |
+      - [chó](animal) nên ăn những loại thức ăn gì
+      - nên cho [mèo](animal) ăn những loại thức ăn gì
+      - [mèo](animal) ăn gì
+      - [mèo](animal) có ăn được cá không
+      - nên cho [mèo](animal) ăn xương không
