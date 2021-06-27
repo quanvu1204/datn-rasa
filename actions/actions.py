@@ -108,10 +108,11 @@ class ActionGetDeviceStatus(Action):
             response = requests.get('http://localhost:4000/device/find-by-id/{}'.format(val))
             res = response.json()
             for item in res['data']['rows']:
-                result = result + 'Tên thiết bị: ' + item['device']['name'] + ', trạng thái: ' + item['device']['status'] + '\n'
+                status = "bật" if (item['device']['status'] == "on") else "tắt"
+                timer = ", sẽ được " + item['device']['timer']['status'] + " lúc " + item['device']['timer']['time'] if (item['device']['timer'] is not None) else ""
+                result = result + 'Tên thiết bị: ' + item['device']['name'] + ', trạng thái: ' + status + timer + '\n'
             if result == '':
                 dispatcher.utter_message('Chưa có thiết bị nào hết, bạn hãy quét thiết bị mới và thêm vào nhaaa !')
-            
             else:
                 dispatcher.utter_message(result)
         except Exception:
