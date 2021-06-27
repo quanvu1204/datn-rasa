@@ -210,3 +210,42 @@ class ActionGetFood(Action):
             logging.exception("message")
             dispatcher.utter_message("Ái chà có lỗi gì đó chăng, bạn đợi Beem xíu nha :D")
         return []
+
+class ActionGetFood(Action):
+    def name(self) -> Text:
+        return 'action_control_device_timer'
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker,  domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        try:
+            device = str(tracker.get_slot('device')).lower()
+            status = str(tracker.get_slot('status')).lower()
+            hour = tracker.get_slot('hour')
+            minute = tracker.get_slot('minute')
+            hourModified = hour.split(" giờ")[0] if (hour is not None) else "00"
+            hourlastModified = hourModified if (len(hourModified) == 2) else "0" + hourModified
+            minuteModified = minute.split(" phút")[0] if (minute is not None) else "00"
+            minutelastModified = minuteModified if (len(minuteModified) == 2) else "0" + minuteModified
+            ref = db.reference('/devices')
+            devices = ref.get()
+            foundDevices = False
+            ip = ''
+            key = ''
+            for keyID in devices:
+                if str(devices[keyID]['name']).lower() == device:
+                    foundDevices = True
+                    key = keyID
+                    ip = str(devices[keyID]['ip'])
+            if foundDevices == True:
+                ref.child(key).update({
+                    'timer': { "status": status, "time": hourlastModified + ":" + minutelastModified + ":00" }
+                })
+                data = {'ip': ip, 'timer': { "status": status, "time": hourlastModified + ":" + minutelastModified + ":00" } }
+                headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
+                requests.put('http://localhost:4000/device/update', data = json.dumps(data), headers=headers)
+                dispatcher.utter_message(tracker.get_slot('device') + " sẽ " + status + " lúc " + hourlastModified  + ":" + minutelastModified + ":00" + ".\nBạn có yêu cầu gì nữa không ạ?")
+            else:
+                dispatcher.utter_message("Không tìm thấy thiết bị bạn yêu cầu, hãy xem lại danh sách thiết bị nhé")
+        except Exception:
+            logging.exception("message")
+            dispatcher.utter_message("Ái chà có lỗi gì đó chăng, bạn đợi Beem xíu nha :D")
+        return []

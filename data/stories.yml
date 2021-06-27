@@ -192,3 +192,8 @@ stories:
     steps:
       - intent: ask_food
       - action: action_get_food
+      
+  - story: ask control device timer
+    steps:
+      - intent: ask_control_device_timer
+      - action: action_control_device_timer

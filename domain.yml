@@ -32,6 +32,7 @@ intents:
   - ask_safe
   - ask_food_for_animal
   - ask_food
+  - ask_control_device_timer
 
 entities:
   - enword
@@ -40,6 +41,8 @@ entities:
   - device
   - city
   - animal
+  - hour
+  - minute
 
 slots:
   enword:
@@ -60,6 +63,12 @@ slots:
     type: text
     influence_conversation: false
   animal:
+    type: text
+    influence_conversation: false
+  hour:
+    type: text
+    influence_conversation: false
+  minute:
     type: text
     influence_conversation: false
 
@@ -189,3 +198,4 @@ actions:
   - action_get_weather
   - action_get_lottery
   - action_get_food
+  - action_control_device_timer

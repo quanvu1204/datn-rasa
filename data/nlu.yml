@@ -344,7 +344,7 @@ nlu:
       - [mèo](animal) ăn gì
       - [mèo](animal) có ăn được cá không
       - nên cho [mèo](animal) ăn xương không
-  
+
   - intent: ask_food
     examples: |
       - Hôm nay ăn gì
@@ -359,3 +359,11 @@ nlu:
       - Tối ăn gì đây nhỉ
       - Công thức nấu ăn
       - Nấu ăn
+
+  - intent: ask_control_device_timer
+    examples: |
+      - [tắt](status) [ổ cắm](device) lúc [12 giờ](hour) [12 phút](minute)
+      - [bật](status) [đèn](device) lúc [12 giờ](hour) [1 phút](minute)
+      - [bật](status) [bóng đèn](device) lúc [12 giờ](hour) [1 phút](minute)
+      - [bật](status) [công tắc](device) lúc [10 giờ](hour) [02 phút](minute)
+      - hẹn giờ [bật](status) [quạt](device) lúc [20 giờ](hour) [12 phút](minute)
