@@ -129,16 +129,25 @@ class ActionControlDevice(Action):
         device = str(tracker.get_slot('device')).lower()
         status = str(tracker.get_slot('status')).lower()
         try:
+            ip = None
+            val = tracker.get_slot('session_started_metadata')
+            response = requests.get('http://localhost:4000/device/find-by-id/{}'.format(val))
+            res = response.json()
+            print(res['data']['rows'])
+            for item in res['data']['rows']:
+                if item['device']['name'] == device:
+                    ip =  item['device']['ip']
+            if ip is None:
+                dispatcher.utter_message("Không tìm thấy thiết bị bạn yêu cầu, hãy xem lại danh sách thiết bị nhé")
+                return []
             ref = db.reference('/devices')
             devices = ref.get()
             foundDevices = False
-            ip = ''
             key = ''
             for keyID in devices:
-                if str(devices[keyID]['name']).lower() == device:
+                if str(devices[keyID]['ip']).lower() == ip:
                     foundDevices = True
                     key = keyID
-                    ip = str(devices[keyID]['ip'])
             if foundDevices == True:
                 ref.child(key).update({
                     'status': status
@@ -212,7 +221,7 @@ class ActionGetFood(Action):
             dispatcher.utter_message("Ái chà có lỗi gì đó chăng, bạn đợi Beem xíu nha :D")
         return []
 
-class ActionGetFood(Action):
+class ActionControlDeviceTimer(Action):
     def name(self) -> Text:
         return 'action_control_device_timer'
 
@@ -226,16 +235,24 @@ class ActionGetFood(Action):
             hourlastModified = hourModified if (len(hourModified) == 2) else "0" + hourModified
             minuteModified = minute.split(" phút")[0] if (minute is not None) else "00"
             minutelastModified = minuteModified if (len(minuteModified) == 2) else "0" + minuteModified
+            ip = None
+            val = tracker.get_slot('session_started_metadata')
+            response = requests.get('http://localhost:4000/device/find-by-id/{}'.format(val))
+            res = response.json()
+            for item in res['data']['rows']:
+                if item['device']['name'] == device:
+                    ip =  item['device']['ip']
+            if ip is None:
+                dispatcher.utter_message("Không tìm thấy thiết bị bạn yêu cầu, hãy xem lại danh sách thiết bị nhé")
+                return []
             ref = db.reference('/devices')
             devices = ref.get()
             foundDevices = False
-            ip = ''
             key = ''
             for keyID in devices:
-                if str(devices[keyID]['name']).lower() == device:
+                if str(devices[keyID]['ip']).lower() == ip:
                     foundDevices = True
                     key = keyID
-                    ip = str(devices[keyID]['ip'])
             if foundDevices == True:
                 ref.child(key).update({
                     'timer': { "status": status, "time": hourlastModified + ":" + minutelastModified + ":00" }
